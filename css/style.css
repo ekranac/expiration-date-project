@@ -1,0 +1,12 @@
+#add-form
+{
+    border:solid 1px black;
+    padding:20px;
+    border-radius:10px;
+}
+
+.btn-info
+{
+    float:right;
+    font-size:30px;
+}
