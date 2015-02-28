@@ -20,3 +20,8 @@ td
 {
     font-size:20px;
 }
+
+.expired
+{
+    color: #ff0000;
+}
