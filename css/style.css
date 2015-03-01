@@ -21,6 +21,11 @@ td
     font-size:20px;
 }
 
+tr
+{
+    height:40px;
+}
+
 .expired
 {
     color: #ff0000;
