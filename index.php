@@ -13,7 +13,7 @@ if(!$mysqli->real_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB))
   die('Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
-if(isset($_POST['title']) && isset($_POST['exp-date']))
+if(isset($_POST['title']) && isset($_POST['exp-date']) && $_POST['title'] != null && $_POST['exp-date'] != null)
 {
   $query = 'INSERT INTO izdelki (naziv, datum_poteka) VALUES (?, ?)';
   
