@@ -1,6 +1,13 @@
+body
+{
+    background:url("../img/background.jpg");
+    background-repeat:repeat-y;
+    background-size:100% 100%;
+}
+
 #add-form
 {
-    border:solid 1px black;
+    background:#a6c2de;
     padding:20px;
     border-radius:10px;
 }
@@ -11,9 +18,17 @@
     font-size:30px;
 }
 
+table
+{
+    width:100%;
+    margin-top:70px;
+    background:#a6c2de;
+}
+
 th
 {
     font-size:25px;
+    background:#6ba3db;
 }
 
 td
@@ -23,10 +38,24 @@ td
 
 tr
 {
-    height:40px;
+    height:50px;
+    border-bottom:solid 2px #7d9bba;
 }
 
 .expired
 {
     color: #ff0000;
+}
+
+.main-title
+{
+    color:#8f2f2e;
+    text-align:center;
+    font-weight:bold;
+}
+
+#carousel-example-generic
+{
+    border:solid 10px #a7cbfa;
+    border-radius:10px;
 }
