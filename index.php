@@ -5,7 +5,7 @@ date_default_timezone_set('Europe/Ljubljana');
 
 define('MYSQL_HOST', '92.244.93.250');
 define('MYSQL_USER', 'jakob');
-define('MYSQL_PASS', 'kemija');
+define('MYSQL_PASS', '');
 define('MYSQL_DB'  , 'jakob');
 $mysqli = mysqli_init();
 if(!$mysqli->real_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB))
