@@ -105,7 +105,7 @@ if(isset($_POST['removeProduct']))
                       $stmt->bind_result($id, $name, $date);
                       while($stmt->fetch()):
                   ?>
-                  <tr <?php if(strtotime($date) < time()) echo 'class="expired"'; ?>>
+                  <tr <?php if((strtotime($date) - 3600 * 24 * 5) < time()) echo 'class="expired"'; ?>>
                       <td><?php echo $name; ?></td>
                       <td><?php echo date('d.m.Y', strtotime($date)); ?></td>
                       <td><button class="btn btn-danger" type="submit" name="removeProduct" value="<?php echo $id; ?>">Delete</button></td>
