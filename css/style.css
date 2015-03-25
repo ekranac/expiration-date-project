@@ -59,3 +59,37 @@ tr
     border:solid 10px #a7cbfa;
     border-radius:10px;
 }
+
+.postit
+{
+    width:100%;
+    min-height:350px;
+    background:#FFFF83;
+    margin-top:20px;
+}
+
+#postit-note
+{
+    background:#FFFF83;
+    width:100%;
+    border:none;
+    resize:none;
+    height:280px;
+}
+.btn-warning
+{
+    float:right;
+    font-size:30px;
+    color: gray;
+    width: 100%;
+    background:#FFFF60;
+    border-radius: 0;
+    border:none;
+}
+
+.btn-warning:hover
+{
+    background:#FFFF83;
+    border:none;
+    color:gray;
+}

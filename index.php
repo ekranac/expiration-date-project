@@ -94,6 +94,12 @@ if(isset($_POST['removeProduct']))
                 </div>
             </div>
 
+             <div class="postit">
+                 <form action="" method="post" id="post-note">
+                     <textarea name="post-text" id="postit-note"></textarea>
+                     <input type="submit" value="Objavi" class="btn btn-warning">
+                 </form>
+             </div>
           </div>
           <div class="col-sm-8">
               <form action="" method="post">
