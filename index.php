@@ -13,12 +13,6 @@ if(!$mysqli->real_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB))
   die('Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
 
-$query = "DELETE FROM izdelki WHERE datum_poteka < NOW()";
-$stmt = $mysqli->stmt_init();
-$stmt->prepare($query);
-$stmt->execute();
-$stmt->close();
-
 if(isset($_POST['title']) && isset($_POST['exp-date']) && $_POST['title'] != null && $_POST['exp-date'] != null)
 {
   $query = 'INSERT INTO izdelki (naziv, datum_poteka) VALUES (?, ?)';
@@ -37,6 +31,21 @@ if(isset($_POST['removeProduct']))
   $stmt->execute();
   $stmt->close();
 }
+if(isset($_POST['post-text']))
+{
+	$query = 'UPDATE postit SET vsebina=?';
+	
+  $stmt = $mysqli->prepare($query);
+  $stmt->bind_param("s", $_POST['post-text']);
+  $stmt->execute();  
+  $stmt->close();
+}
+
+$query = "DELETE FROM izdelki WHERE datum_poteka < NOW()";
+$stmt = $mysqli->stmt_init();
+$stmt->prepare($query);
+$stmt->execute();
+$stmt->close();
 
 ?>
 <!DOCTYPE html>
@@ -96,7 +105,23 @@ if(isset($_POST['removeProduct']))
 
              <div class="postit">
                  <form action="" method="post" id="post-note">
-                     <textarea name="post-text" id="postit-note"></textarea>
+                     <textarea name="post-text" id="postit-note"><?php
+												$query = 'INSERT INTO postit (vsebina) SELECT "" FROM DUAL WHERE NOT EXISTS (SELECT * FROM postit)';
+												
+												$stmt = $mysqli->stmt_init();
+												$stmt->prepare($query);
+												$stmt->execute();  
+												$stmt->close();
+												
+												$query = "SELECT vsebina FROM postit";
+												$stmt = $mysqli->stmt_init();
+												$stmt->prepare($query);
+												$stmt->execute();
+												$stmt->bind_result($vsebina);
+												$stmt->fetch();
+												
+												echo $vsebina;
+										 ?></textarea>
                      <input type="submit" value="Objavi" class="btn btn-warning">
                  </form>
              </div>
